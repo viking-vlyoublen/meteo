@@ -1,5 +1,8 @@
 ###
 
-GET http://localhost:8081/handler
+POST http://localhost:8081/meteo
 
-###
+{
+  "lat": 55.75,
+  "lng": 37.61
+}
