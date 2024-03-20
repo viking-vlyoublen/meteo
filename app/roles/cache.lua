@@ -9,11 +9,12 @@ local function init(opts)
     if opts.is_master then
         local meteo = box.schema.space.create('meteo', { if_not_exists = true })
         meteo:format({
-            {'id', 'unsigned'},
+            {'id', 'string'},
             {'bucket_id', 'unsigned'},
-            {'time', 'datetime'},
+            {'time', 'string'},
             {'temperature_2m', 'number'},
-            {'wind_speed_10m', 'number'}
+            {'wind_speed_10m', 'number'},
+            {'interval', 'number'}
         })
         meteo:create_index('id', {parts = {'id'}, if_not_exists = true })
         meteo:create_index('bucket_id', {parts = {'bucket_id'}, unique = false, if_not_exists = true })

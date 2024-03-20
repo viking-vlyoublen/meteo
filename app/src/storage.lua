@@ -7,10 +7,6 @@ local function meteo_add(meteo)
 end
 
 local function meteo_lookup(meteo_id)
-    if type(meteo_id) ~= 'number' then
-        error('Usage: meteo_lookup(meteo_id)')
-    end
-
     local meteo_tuple = box.space.meteo:get(meteo_id)
     if meteo_tuple == nil then
         return nil
